@@ -1,6 +1,14 @@
+@import 'variaveis.scss';
+
 * {
-  font-family: 'BiennaleRegular';
+  font-family: $fontRegular;
   font-size: 14px;
 }
 
+.avatar{
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 @import'../public/fonts/fonts.scss';
+@import '../componentes/botao/botao.scss';
