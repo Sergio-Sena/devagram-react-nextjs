@@ -6,7 +6,7 @@ export default function uploadImagem({
     imagemPreview,
     imagemPreviewClassName = ''
 }) {
-    const referenciaInput = useRef('')
+    const referenciaInput = useRef(null)
 
 
 
