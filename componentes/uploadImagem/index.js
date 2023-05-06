@@ -1,13 +1,20 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function uploadImagem({
     className = '',
     setImagem,
     imagemPreview,
-    imagemPreviewClassName = ''
+    imagemPreviewClassName = '',
+    aoSertarReferencia
 }) {
     const referenciaInput = useRef(null)
+    useEffect(() => {
+        if (!aoSertarReferencia) {
+            return;
+        }
+        aoSertarReferencia(referenciaInput?.current);
 
+    }, [referenciaInput?.current]);
 
 
     const gestorDeArquivos = () => {
@@ -16,12 +23,12 @@ export default function uploadImagem({
     }
 
     const aoAlterarImagem = () => {
-        console.log('aoAlterarImagem')
-        if (!referenciaInput?.current?.file?.length) {
+
+        if (!referenciaInput?.current?.files?.length) {
             return;
         }
-        const arquivo = referenciaInput?.current?.file[0];
-        const fileReader = new fileReader();
+        const arquivo = referenciaInput?.current?.files[0];
+        const fileReader = new FileReader();
         fileReader.readAsDataURL(arquivo);
         fileReader.onloadend = () => {
             setImagem({
@@ -33,7 +40,6 @@ export default function uploadImagem({
 
     return (
         <div className={`uploadImagemContainer ${className}`} onClick={gestorDeArquivos}>
-            <button>Abrir arquivos</button>
             {imagemPreview && (
                 <div className="imagemPreviewContainer">
                     <img
