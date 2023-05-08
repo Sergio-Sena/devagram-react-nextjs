@@ -5,6 +5,12 @@
   font-size: 14px;
 }
 
+html, body, #_next{
+  height: 100%;
+  margin: 0;
+
+}
+
 .avatar {
   border-radius: 50%;
   object-fit: cover;
@@ -14,5 +20,8 @@
   display: none;
 }
 
+
+
 @import'../public/fonts/fonts.scss';
 @import '../componentes/botao/botao.scss';
+@import './paginaPublica.scss';
