@@ -6,7 +6,7 @@ export default function InputPublico({
     texto,
     valor = "",
     exibirMensagemValidacao = false,
-    mensagemValicao = "",
+    mensagemValidacao = "",
     aoAlterarValor
 
 }) {
@@ -29,7 +29,7 @@ export default function InputPublico({
                 />
 
             </div>
-            {exibirMensagemValidacao && <p className="mensagemValidacao">(mensagemValidacao)</p>}
+            {mensagemValidacao && <p className="mensagemValidacao">(mensagemValidacao)</p>}
         </div>
     );
 }

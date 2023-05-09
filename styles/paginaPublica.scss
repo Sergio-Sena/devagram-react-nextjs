@@ -1,3 +1,17 @@
 .paginaPublica {
-    //15:23 Timer de pausa
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+
+
+
+    .logoContainer {
+        position: relative;
+        width: 50%;
+        height: 250px;
+    }
+
 }
