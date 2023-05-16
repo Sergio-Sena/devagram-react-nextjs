@@ -21,6 +21,7 @@ export default function InputPublico({
                     width={20}
                     height={20}
                 />
+                
                 <input
                     type={tipo}
                     placeholder={texto}
@@ -29,7 +30,7 @@ export default function InputPublico({
                 />
 
             </div>
-            {mensagemValidacao && <p className="mensagemValidacao">(mensagemValidacao)</p>}
+            {exibirMensagemValidacao && <p className="mensagemValidacao">{mensagemValidacao}</p>}
         </div>
     );
 }

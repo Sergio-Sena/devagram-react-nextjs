@@ -1,10 +1,9 @@
+
 import InputPublico from '../inputPublico';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Botao from '../botao';
-import { useState } from 'react';
 import Link from 'next/link';
-
-
+import { useState } from 'react';
 
 import imagemEnvelope from '../../public/imagens/envelope.svg';
 import imagemChave from '../../public/imagens/chave.svg';
@@ -21,6 +20,7 @@ export default function login() {
                     src={imagemlogo}
                     alt="logotipo"
                     layout="fill"
+                    className='logo'
                 />
             </div>
             <div className="conteudoPaginaPublica">
@@ -35,7 +35,7 @@ export default function login() {
 
                     <InputPublico
                         imagem={imagemChave}
-                        texto="senha"
+                        texto="Senha"
                         tipo="password"
                         aoAlterarValor={e => setSenha(e.target.value)}
                         valor={senha}
@@ -52,7 +52,6 @@ export default function login() {
                     <p>Não posssui uma conta?</p>
                     <Link href='/cadastro' >Faça seu cadastro agora</Link>
                 </div>
-
             </div>
         </section>
     );
