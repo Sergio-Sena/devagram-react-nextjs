@@ -5,7 +5,9 @@
   font-size: 14px;
 }
 
-html, body, #_next{
+html,
+body,
+#__next {
   height: 100%;
   margin: 0;
 
@@ -20,8 +22,23 @@ html, body, #_next{
   display: none;
 }
 
+input {
+  &::placeholder {
+    /*navegadores suportados (chrome, opera, safari e firefox)*/
+    color: $cinza2;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder{
+    /*Internet Explorer 10-11*/
+    color: $cinza2;
+  }
+  &::-ms-input-placeholder{
+    color: $cinza2;
+}
+}
 
 
 @import'../public/fonts/fonts.scss';
 @import '../componentes/botao/botao.scss';
 @import './paginaPublica.scss';
+@import '../componentes/inputPublico/inputPublico.scss';

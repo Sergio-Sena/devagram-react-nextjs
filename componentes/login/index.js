@@ -1,4 +1,3 @@
-
 import InputPublico from '../inputPublico';
 import Image from 'next/legacy/image';
 import Botao from '../botao';
@@ -7,7 +6,7 @@ import { useState } from 'react';
 
 import imagemEnvelope from '../../public/imagens/envelope.svg';
 import imagemChave from '../../public/imagens/chave.svg';
-import imagemlogo from '../../public/imagens/logo.svg';
+import imagemLogo from '../../public/imagens/logo.svg';
 
 export default function login() {
     const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ export default function login() {
         <section className={`paginaLogin paginaPublica `}>
             <div className="logoContainer">
                 <Image
-                    src={imagemlogo}
+                    src={imagemLogo}
                     alt="logotipo"
                     layout="fill"
                     className='logo'
