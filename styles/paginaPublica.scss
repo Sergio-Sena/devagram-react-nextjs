@@ -41,7 +41,7 @@
 
     @media screen and (min-width: $desktopBreakpoint) {
         flex-direction: row;
-        padding: 0 140px;
+        padding: -10px 140px;
         font-size: 18px;
 
         .logoContainer {
