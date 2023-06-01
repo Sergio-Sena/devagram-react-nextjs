@@ -51,6 +51,7 @@ export default function Cadastro() {
             }
             await usuarioService.cadastro(corpReqCadastro)
             alert('Sucesso');
+            //todo autenticar usuario diretamente após cadastro.
         } catch (error) {
             alert(
                 'Erro ao cadastrar usuário' + (error?.response?.data?.erro || '')

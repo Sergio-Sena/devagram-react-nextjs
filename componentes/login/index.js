@@ -3,21 +3,47 @@ import Image from 'next/legacy/image';
 import Botao from '../botao';
 import Link from 'next/link';
 import { useState } from 'react';
-import {validarEmail,validarSenha} from'../../utils/validadores'
+import { validarEmail, validarSenha } from '../../utils/validadores'
+import UsuarioService from '@/services/UsuarioService'
+
+
 
 import imagemEnvelope from '../../public/imagens/envelope.svg';
 import imagemChave from '../../public/imagens/chave.svg';
 import imagemLogo from '../../public/imagens/logo.svg';
 
+const usuarioService = new UsuarioService();
+
 export default function login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [estaSubmentendo, setEstaSubmentendo] = useState(false);
     const validarFormulario = () => {
         return (
             validarEmail(email)
             && validarSenha(senha)
         );
     }
+    const aoSubmeter = async (e) => {
+        e.preventDefault();
+        if (!validarFormulario()) {
+            return;
+        }
+        setEstaSubmentendo(true);
+        try {
+            await usuarioService.login({
+                login: email,
+                senha
+            });
+            //Todo redirecinar usuario para home
+        } catch (error) {
+            alert('Nao foi possível efetuar o Login. ') + (error?.response?.data?.erro || '')
+        }
+
+        setEstaSubmentendo(false);
+
+    };
+
 
     return (
         <section className={`paginaLogin paginaPublica `}>
@@ -30,7 +56,7 @@ export default function login() {
                 />
             </div>
             <div className="conteudoPaginaPublica">
-                <form> 
+                <form onSubmit={aoSubmeter}>
                     <InputPublico
                         imagem={imagemEnvelope}
                         texto="E-mail"
@@ -54,7 +80,8 @@ export default function login() {
                     <Botao
                         texto="Login"
                         tipo="submit"
-                        desabilitado={!validarFormulario()}
+                        desabilitado={!validarFormulario() || estaSubmentendo}
+
                     />
                 </form>
 
