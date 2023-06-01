@@ -59,6 +59,13 @@ input {
   }
 }
 
+.mensagemValidacao{
+  display: block;
+  color: red;
+  font-size: 90%;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
 
 @import'../public/fonts/fonts.scss';
 @import '../componentes/botao/botao.scss';
