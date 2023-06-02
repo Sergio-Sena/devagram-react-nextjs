@@ -1,10 +1,11 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { validarEmail, validarSenha, validarNome, validarConfirmacaoSenha } from '../../utils/validadores'
 import Image from 'next/image';
 import Link from 'next/link';
 import Botao from '../../componentes/botao';
 import InputPublico from '@/componentes/inputPublico';
 import UploadImagem from '@/componentes/uploadImagem';
-import { useState } from 'react';
-import { validarEmail, validarSenha, validarNome, validarConfirmacaoSenha } from '../../utils/validadores'
 import UsuarioService from '@/services/UsuarioService';
 
 import imagemAvatar from '../../public/imagens/avatar.svg';
@@ -23,6 +24,7 @@ export default function Cadastro() {
     const [senha, setsenha] = useState("");
     const [confirmacaosenha, setconfirmacaosenha] = useState("");
     const [estaSubmentendo, setEstaSubmentendo] = useState(false);
+    const router = useRouter()
 
     const validarFormulario = () => {
         return (
@@ -33,7 +35,7 @@ export default function Cadastro() {
         );
     }
 
-    const  aoSubmeter = async (e) => {
+    const aoSubmeter = async (e) => {
         e.preventDefault();
         if (!validarFormulario()) {
             return;
@@ -42,21 +44,25 @@ export default function Cadastro() {
 
         try {
             const corpReqCadastro = new FormData();
-            corpReqCadastro.append("nome",nome);
-            corpReqCadastro.append("email",email);
-            corpReqCadastro.append("senha",senha);
-            
-            if(imagem?.arquivo){
-                corpReqCadastro.append("file",imagem.arquivo);
+            corpReqCadastro.append("nome", nome);
+            corpReqCadastro.append("email", email);
+            corpReqCadastro.append("senha", senha);
+
+            if (imagem?.arquivo) {
+                corpReqCadastro.append("file", imagem.arquivo);
             }
             await usuarioService.cadastro(corpReqCadastro)
-            alert('Sucesso');
-            //todo autenticar usuario diretamente após cadastro.
+            await usuarioService.login({
+                login: email,
+                senha
+            });
+
+            router.push('/');
         } catch (error) {
             alert(
                 'Erro ao cadastrar usuário' + (error?.response?.data?.erro || '')
 
-                );
+            );
         }
         setEstaSubmentendo(false);
     }

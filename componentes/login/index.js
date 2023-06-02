@@ -14,7 +14,7 @@ import imagemLogo from '../../public/imagens/logo.svg';
 
 const usuarioService = new UsuarioService();
 
-export default function login() {
+export default function login({aposAutenticacao}) {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [estaSubmentendo, setEstaSubmentendo] = useState(false);
@@ -35,7 +35,11 @@ export default function login() {
                 login: email,
                 senha
             });
+            if(aposAutenticacao){
+                aposAutenticacao();
+            }
             //Todo redirecinar usuario para home
+
         } catch (error) {
             alert('Nao foi possível efetuar o Login. ') + (error?.response?.data?.erro || '')
         }
