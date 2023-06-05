@@ -1,6 +1,7 @@
 import UsuarioService from "@/services/UsuarioService"
 import { useRouter } from "next/router";
 import Header from "../layout/header";
+import Rodape from "../layout/rodape";
 
 const usuarioService = new UsuarioService();
 
@@ -17,6 +18,7 @@ export default function comAutorizacao(Componente) {
                 <>
                     <Header/>
                     <Componente {...props} />
+                    <Rodape />
                 </>
                  );
         }

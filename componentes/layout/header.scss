@@ -37,7 +37,7 @@
                 border-radius: 4px;
                 color: $corPrimaria;
 
-                &:focus{
+                &:focus {
                     border: 1px solid $corPrimaria;
                 }
 
@@ -45,9 +45,35 @@
 
         }
     }
-    
+
     @media screen and (min-width: $desktopBreakpoint) {
         background-color: $branco;
         border: none;
+
+        .contudoCabecalhoPrincipal {
+            max-width: 60%;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+
+            .logoCabecalhopricipal{
+                width: 200px;   
+            }
+
+            .barraPesquisa {
+                flex: 0.6px 0;
+                margin: 0px 10px 0px 30px;
+                width: 100%;
+            }
+
+            .barraNavegacao {
+                ul {
+                    li {
+                        margin: 0px 0px 0px 20px;
+                    }
+                }
+            }
+
+        }
     }
 }

@@ -9,7 +9,7 @@ import imgUsuarioCinza from '../../public/imagens/usuarioCinza.svg'
 
 
 
-export default function Footer({ className }) {
+export default function Navegacao({ className }) {
     return (
         <nav className={`barraNavegacao ${className}`}>
             <ul>

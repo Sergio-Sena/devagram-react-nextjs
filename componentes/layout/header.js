@@ -1,7 +1,7 @@
 import Image from "next/image";
 import logoHorizontalImg from "../../public/imagens/logoHorizontal.svg";
 import lupa from "../../public/imagens/lupa.svg";
-import Footer from "./footer";
+import Footer from "./Navegacao";
 
 export default function Header() {
     return (
@@ -27,7 +27,7 @@ export default function Header() {
                         placeholder="Pesquisar"
                         value={''}
                         onChange={() => console.log("Pesquisando")}
-        
+
                     />
                 </div>
                 <Footer className="desktop" />
