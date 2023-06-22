@@ -14,11 +14,14 @@ export default function comAutorizacao(Componente) {
                 router.replace('/');
                 return null;
             }
+
+            const usuarioLogado = usuarioService.obterInformacoesDeUsuarioLogado();
+
             return (
                 <>
-                    <Header />
-                    <Componente {...props} />
-                    <Rodape />
+                    <Header usuarioLogado={usuarioLogado} />
+                    <Componente usuarioLogado={usuarioLogado} {...props} />
+                    <Rodape usuarioLogado={usuarioLogado} />
                 </>
             );
         }
