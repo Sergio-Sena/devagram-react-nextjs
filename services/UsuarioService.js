@@ -22,22 +22,18 @@ export default class UsuarioService extends httpServices {
 
     estaAutenticado() {
         return localStorage.getItem('token') !== null;
-        
+
     }
-    async pesquisar(termoDaPesquisa){
+    async pesquisar(termoDaPesquisa) {
         return this.get('/pesquisa?filtro=' + termoDaPesquisa);
     }
-    obterInformacoesDeUsuarioLogado(){
-        return{
-            obterInformacoesDeUsuarioLogado(){
-                return{
-                    id:localStorage.getItem('id'),
-                    nome:localStorage.getItem('nome'),
-                    email:localStorage.getItem('email'),
-                    avatar:localStorage.getItem('avatar')
-                       
-                }
-            }       
+    obterInformacoesDeUsuarioLogado() {
+        return {
+            id: localStorage.getItem('id'),
+            nome: localStorage.getItem('nome'),
+            email: localStorage.getItem('email'),
+            avatar: localStorage.getItem('avatar')
+
         }
     }
 }
