@@ -47,22 +47,21 @@ export default function Postagem({
                     <span className="quantidadedeCurtidas">
                         Curtido por <strong>32 pessoas</strong>
                     </span>
-                </div>
-
-                <div className="descricaoDaPostagem">
-                    <strong className="nomeUsuario">{usuario.nome}</strong>
-                    <p className="descricao">
-                        {descricao}
-                    </p>
-                </div>
-            </div>
-            <div className="comentariosDaPublicacao">
-                {comentarios.map((comentario, i) => (
-                    <div className="comentario" key={i}>
-                        <strong className="nomeUsuario">{comentario.nome}</strong>
-                        <p className="descricao">{comentario.mensagem}</p>
+                    <div className="descricaoDaPostagem">
+                        <strong className="nomeUsuario">{usuario.nome}</strong>
+                        <p className="descricao">
+                            {descricao}
+                        </p>
                     </div>
-                ))}
+                </div>
+                <div className="comentariosDaPublicacao">
+                    {comentarios.map((comentario, i) => (
+                        <div className="comentario" key={i}>
+                            <strong className="nomeUsuario">{comentario.nome}</strong>
+                            <p className="descricao">{comentario.mensagem}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

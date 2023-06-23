@@ -87,6 +87,20 @@ strong {
   font-family: $fontBold;
 }
 
+body {
+  @media screen and (min-width:$desktopBreakpoint) {
+    background-color: $cinza5;
+    background-image: url('/imagens/imagemDeFundoDesktop.svg');
+  }
+}
+
+.largura30pctDesktop{
+  @media screen and (min-width:$desktopBreakpoint) {
+    width: 30%;
+    margin: auto;
+  }
+}
+
 @import'../public/fonts/fonts.scss';
 @import '../componentes/botao/botao.scss';
 @import './paginaPublica.scss';
