@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Avatar from "../avatar";
@@ -8,15 +9,40 @@ import imgCurtir from "../../public/imagens/curtir.svg"
 import imgCurtido from "../../public/imagens/curtido.svg"
 import imgComentarioAtivo from "../../public/imagens/comentarioAtivo.svg"
 import imgComentarioCinza from "../../public/imagens/comentarioCinza.svg"
+import { FazerComentario } from "./FazerCometario";
 
+const tamanhoLimetiDescricao = 86;
 
 export default function Postagem({
     usuario,
     fotoDoPost,
     descricao,
-    comentarios
+    comentarios,
+    usuarioLogado
 
 }) {
+    const [deveExibirSecaoComentar, setDeveExibirSecaoComentar] = useState(false);
+
+    const [tamanhoAtualDescricao, setTamanhoAtualDescricao] = useState(
+        tamanhoLimetiDescricao
+    );
+
+    const descricaoCompleta = () => {
+        setTamanhoAtualDescricao(Number.MAX_SAFE_INTEGER)
+    }
+
+    const descricaoMaiorQueLimite = () => {
+        return (descricao.length > tamanhoAtualDescricao)
+    }
+
+
+    const obterDescricao = () => {
+        let mensagem = descricao.substring(0, tamanhoAtualDescricao);
+        if (descricaoMaiorQueLimite()) {
+            mensagem += '...'
+        }
+        return mensagem;
+    }
     return (
         <div className="postagem">
             <Link href={`/perfil/${usuario.id}`}>
@@ -42,7 +68,7 @@ export default function Postagem({
                         alt='icone comentar'
                         width={20}
                         height={20}
-                        onClick={() => console.log('comentar')}
+                        onClick={() => setDeveExibirSecaoComentar(!deveExibirSecaoComentar)}
                     />
                     <span className="quantidadedeCurtidas">
                         Curtido por <strong>32 pessoas</strong>
@@ -50,7 +76,14 @@ export default function Postagem({
                     <div className="descricaoDaPostagem">
                         <strong className="nomeUsuario">{usuario.nome}</strong>
                         <p className="descricao">
-                            {descricao}
+                            {obterDescricao()}
+                            {descricaoMaiorQueLimite() && (
+                                <span
+                                    onClick={descricaoCompleta}
+                                    className="descricaoCompleta">
+                                    mais
+                                </span>
+                            )}
                         </p>
                     </div>
                 </div>
@@ -63,6 +96,9 @@ export default function Postagem({
                     ))}
                 </div>
             </div>
+            {deveExibirSecaoComentar &&
+                <FazerComentario usuarioLogado={usuarioLogado} />
+            }
         </div>
     )
 }
