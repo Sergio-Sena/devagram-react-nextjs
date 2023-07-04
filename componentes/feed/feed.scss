@@ -109,11 +109,11 @@
 
             .rodapeDaPostagem {
                 .acoesDaPostagem {
-                    >span {
-                        cursor: pointer           
-                    }
+                    cursor: pointer
                 }
-            };
+            }
+
+            ;
         }
 
         .containerFazerComentario {
@@ -125,8 +125,7 @@
                 outline: none;
                 border: none;
                 font-size: 12px;
-                cursor: pointer 
-
+                cursor: pointer
             }
         }
     }
