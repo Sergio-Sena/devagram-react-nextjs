@@ -4,6 +4,7 @@ import Image from "next/image";
 import Avatar from "../avatar";
 import Feed from "../feed";
 import FazerComentario from "../feed/FazerCometario";
+import FeedService from "@/services/FeedService";
 
 // Import das Imagens
 import imgCurtir from "../../public/imagens/curtir.svg";
@@ -12,8 +13,11 @@ import imgComentarioAtivo from "../../public/imagens/comentarioAtivo.svg";
 import imgComentarioCinza from "../../public/imagens/comentarioCinza.svg";
 
 const tamanhoLimiteDescricao = 86;
+const feddServce = new FeedService();
+
 
 export default function Postagem({
+    id,
     usuario,
     fotoDoPost,
     descricao,
@@ -43,18 +47,26 @@ export default function Postagem({
 
     const obterImagemComentario = () => {
         return deveExibirSecaoComentar
-        ?imgComentarioAtivo
-        :imgComentarioCinza;
+            ? imgComentarioAtivo
+            : imgComentarioCinza;
     }
 
     const comentar = async (comentario) => {
-        console.log('fazer comentario');
         try {
-
+            await feedService.adicionarComentario(id, comentario);
+            setDeveExibirSecaoParaComentar(false);
+            setComentariosPostagem([
+                ...comentariosPostagem,
+                {
+                    nome: usuarioLogado.nome,
+                    mensagem: comentario
+                    
+                }
+            ]);
+            return true;
         } catch (e) {
-            
+            alert(`Erro ao fazer comentario! ` + (e?.response?.data?.erro || ''));
         }
-        return Promise.resolve(true);
     }
 
     return (
