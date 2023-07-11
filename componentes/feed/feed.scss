@@ -1,12 +1,13 @@
 .feedContainer {
     padding-bottom: 60px;
-    background-color: $branco;
+    background-color: $cinza;
     margin-top: 16px;
 
     .postagem {
+        margin-top: 12px;
         .avatar {
-            width: 32px;
             height: 32px;
+            width: 32px;
             margin-right: 8px;
         }
 
@@ -22,14 +23,13 @@
             }
         }
 
-        .fotoDaPostagem {
+        .fotoPostagem {
             img {
                 width: 100%;
                 height: auto;
                 max-height: 360px;
                 object-fit: cover;
             }
-        }
 
         .rodapeDaPostagem {
             padding: 5px 16px;
@@ -61,7 +61,7 @@
             .acoesDaPostagem {
                 align-items: center;
                 margin-bottom: 6px;
-
+                
                 >span {
                     margin-right: 6px !important;
                 }
@@ -129,4 +129,4 @@
             }
         }
     }
-}
+}}

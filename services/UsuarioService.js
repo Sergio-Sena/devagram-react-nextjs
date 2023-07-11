@@ -8,6 +8,7 @@ export default class UsuarioService extends httpServices {
         localStorage.setItem("nome", data.nome);
         localStorage.setItem("email", data.email);
         localStorage.setItem("token", data.token)
+        
 
         const usuario = await this.get('/usuario');
         localStorage.setItem('id', usuario.data._id)

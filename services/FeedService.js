@@ -8,4 +8,7 @@ export default class FeedService extends httpServices {
         }
         return this.get(url);
     }
+    async adicionarComentario(idPostagem, comentario){
+        
+    }
 }
