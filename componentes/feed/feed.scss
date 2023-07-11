@@ -1,7 +1,7 @@
 .feedContainer {
     padding-bottom: 60px;
     background-color: $cinza;
-    margin-top: 16px;
+    margin-top: 36px;
 
     .postagem {
         margin-top: 12px;
@@ -33,6 +33,7 @@
 
         .rodapeDaPostagem {
             padding: 5px 16px;
+            width: 100%;
 
             .descricaoDaPostagem {
                 margin-top: auto;
