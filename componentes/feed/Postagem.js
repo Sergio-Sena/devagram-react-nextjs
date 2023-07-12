@@ -23,6 +23,7 @@ export default function Postagem({
   comentarios,
   usuarioLogado
 }) {
+  const [comentariosPostagem,setcomentariosPostagem] =useState(comentarios);
   const [deveExibirSecaoComentar, setDeveExibirSecaoComentar] = useState(false);
   const [tamanhoAtualDescricao, setTamanhoAtualDescricao] = useState(tamanhoLimiteDescricao);
 
@@ -50,10 +51,12 @@ export default function Postagem({
     try {
       await feedService.adicionarComentario(id, comentario);
       setDeveExibirSecaoComentar(false);
-      setComentarios([...comentarios, { nome: usuarioLogado.nome, mensagem: comentario }]);
-      return true;
+      setcomentariosPostagem([...comentarios, { 
+        nome: usuarioLogado.nome,
+         mensagem: comentario }]);
     } catch (e) {
       alert(`Erro ao fazer comentário! ` + (e?.response?.data?.erro || ''));
+      
     }
   };
   
@@ -107,7 +110,7 @@ export default function Postagem({
           </div>
         </div>
         <div className="comentariosDaPublicacao">
-          {comentarios.map((comentario, i) => (
+          {comentariosPostagem.map((comentario, i) => (
             <div className="comentario" key={i}>
               {comentario.nome && (
                 <strong className="nomeUsuario">{comentario.nome}</strong>
