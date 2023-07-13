@@ -4,12 +4,7 @@
     margin-top: 36px;
 
     .postagem {
-        margin-top: 12px;
-        .avatar {
-            height: 32px;
-            width: 32px;
-            margin-right: 8px;
-        }
+        margin-top: 16px;
 
         .headerPostagem {
             display: flex;
@@ -17,21 +12,29 @@
             padding: 0 12px;
             margin-bottom: 8px;
 
+            .avatar {
+                height: 32px;
+                width: 32px;
+                margin-right: 8px;
+            }
+
             strong {
                 font-size: 12px;
                 color: $cinza4;
             }
         }
 
-        .fotoPostagem {
+        .fotoDaPostagem {
             img {
                 width: 100%;
                 height: auto;
                 max-height: 360px;
                 object-fit: cover;
             }
+        }
 
         .rodapeDaPostagem {
+            display: flex;
             padding: 5px 16px;
             width: 100%;
 
@@ -49,28 +52,32 @@
             }
 
             p.descricao {
+                display: flex;
                 font-size: 12px;
                 margin: 0 0 2px;
 
                 .descricaoCompleta {
-                    font-size: 12px;
+                    font-size: 14px;
                     color: $corPrimaria3;
                     cursor: pointer;
+                    margin-right: 25px;
                 }
             }
 
             .acoesDaPostagem {
                 align-items: center;
-                margin-bottom: 6px;
-                
+                margin-bottom: 8px;
+                color: $cinza4;
+
                 >span {
-                    margin-right: 6px !important;
+                    margin-right: 12px !important;
+                    color: $cinza4;
                 }
             }
 
             .quantidadedeCurtidas {
                 font-family: $fontLight;
-                font-size: 11px;
+                font-size: 10px;
                 color: $cinza4;
 
                 strong {
@@ -97,37 +104,38 @@
 
             }
         }
-    }
 
-    @media screen and (min-width:$desktopBreakpoint) {
-        padding-top: 8px;
 
-        .postagem {
-            .avatar {
-                width: 42px;
-                height: 42px;
+        @media screen and (min-width:$desktopBreakpoint) {
+            padding-top: 8px;
+
+            .postagem {
+                .avatar {
+                    width: 42px;
+                    height: 42px;
+                }
+
+                .rodapeDaPostagem {
+                    .acoesDaPostagem {
+                        cursor: pointer
+                    }
+                }
+
+                ;
             }
 
-            .rodapeDaPostagem {
-                .acoesDaPostagem {
+            .containerFazerComentario {
+                margin-top: 10px;
+
+                .btnPublicacao {
+                    background-color: transparent;
+                    color: $corPrimaria;
+                    outline: none;
+                    border: none;
+                    font-size: 12px;
                     cursor: pointer
                 }
             }
-
-            ;
-        }
-
-        .containerFazerComentario {
-            margin-top: 10px;
-
-            .btnPublicacao {
-                background-color: transparent;
-                color: $corPrimaria;
-                outline: none;
-                border: none;
-                font-size: 12px;
-                cursor: pointer
-            }
         }
     }
-}}
+}

@@ -41,7 +41,7 @@ export default function Feed({ usuarioLogado, usuarioPerfil }) {
     }
 
     return (
-        <div className="feedContainer larguraDesktop">
+        <div className="feedContainer largura30pctDesktop">
             {listaDePostagens.map(dadosPostagem => (
                 <Postagem
                     key={dadosPostagem.id}
