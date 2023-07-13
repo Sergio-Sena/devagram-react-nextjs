@@ -123,6 +123,7 @@ export default function Postagem({
           <span className="quantidadedeCurtidas">
             Curtido por <strong>{curtidasPostagens.length} pessoas</strong>
           </span>
+        </div>
           <div className="descricaoDaPostagem">
             {usuario && usuario.nome && (
               <strong className="nomeUsuario">{usuario.nome}</strong>
@@ -136,7 +137,6 @@ export default function Postagem({
               )}
             </p>
           </div>
-        </div>
         <div className="comentariosDaPublicacao">
           {comentariosPostagem.map((comentario, i) => (
             <div className="comentario" key={i}>
