@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Avatar from "../avatar";
 import Feed from "../feed";
-import FazerComentario from "../feed/FazerCometario";
+import { FazerComentario } from "../feed/FazerCometario";
 import FeedService from "@/services/FeedService";
 
 // Import das Imagens
@@ -124,19 +124,19 @@ export default function Postagem({
             Curtido por <strong>{curtidasPostagens.length} pessoas</strong>
           </span>
         </div>
-          <div className="descricaoDaPostagem">
-            {usuario && usuario.nome && (
-              <strong className="nomeUsuario">{usuario.nome}</strong>
+        <div className="descricaoDaPostagem">
+          {usuario && usuario.nome && (
+            <strong className="nomeUsuario">{usuario.nome}</strong>
+          )}
+          <p className="descricao">
+            {obterDescricao()}
+            {descricaoMaiorQueLimite() && (
+              <span onClick={descricaoCompleta} className="descricaoCompleta">
+                mais
+              </span>
             )}
-            <p className="descricao">
-              {obterDescricao()}
-              {descricaoMaiorQueLimite() && (
-                <span onClick={descricaoCompleta} className="descricaoCompleta">
-                  mais
-                </span>
-              )}
-            </p>
-          </div>
+          </p>
+        </div>
         <div className="comentariosDaPublicacao">
           {comentariosPostagem.map((comentario, i) => (
             <div className="comentario" key={i}>

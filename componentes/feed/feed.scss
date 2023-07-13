@@ -68,11 +68,12 @@
                 align-items: center;
                 margin-bottom: 8px;
                 color: $cinza4;
-
+                cursor: pointer;
                 >span {
                     margin-right: 12px !important;
                     color: $cinza4;
                 }
+                
             }
 
             .quantidadedeCurtidas {
@@ -115,13 +116,6 @@
                     height: 42px;
                 }
 
-                .rodapeDaPostagem {
-                    .acoesDaPostagem {
-                        cursor: pointer
-                    }
-                }
-
-                ;
             }
 
             .containerFazerComentario {

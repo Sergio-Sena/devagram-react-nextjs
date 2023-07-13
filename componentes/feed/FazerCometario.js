@@ -3,7 +3,7 @@ import Avatar from "../avatar"
 import Feed from "../feed"
 
 
-export default function FazerComentario({ usuarioLogado, comentar }) {
+export function FazerComentario({ usuarioLogado, comentar }) {
     const [linhas, setLinhas] = useState(1);
     const [comentario, setComentario] = useState('');
 
