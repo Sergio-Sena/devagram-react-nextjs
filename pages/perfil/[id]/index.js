@@ -1,9 +1,13 @@
+import CabecalhoComAcoes from "@/componentes/cabecalhoComAcoes";
+import Feed from "@/componentes/feed";
 import comAutorizacao from "@/componentes/hoc/comAutorizacao";
 
-
-function Perfil(){
+function Perfil() {
     return (
-        <h1>perfil</h1>
+        <div className="paginaPerfil">
+            <CabecalhoComAcoes />
+            <Feed />
+        </div>
     );
 }
 
