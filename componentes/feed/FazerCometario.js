@@ -1,50 +1,50 @@
 import { useState } from "react";
-import Avatar from "../avatar"
-import Feed from "../feed"
-
+import Avatar from "../avatar";
 
 export function FazerComentario({ usuarioLogado, comentar }) {
-    const [linhas, setLinhas] = useState(1);
+    const [rows, setRows] = useState(1);
     const [comentario, setComentario] = useState('');
 
     const aoDigitarComentario = (e) => {
         const valorInput = e.target.value;
         setComentario(valorInput);
-        setLinhas(valorInput.length > 0 ? 2 : 1)
+        setRows(valorInput.length > 0 ? 2 : 1);
     }
 
-    const aoPresionarQualquerTecla = (e) => {
-        if (e.key === 'Enter') {
+    const aoPressionarQualquerTecla = (e) => {
+        if(e.key === 'Enter') {
             fazerComentario();
-
         }
     }
 
     const fazerComentario = () => {
-        if (comentario.trim().length === 0 || !comentar) {
+        if(comentario.trim().length === 0 || !comentar) {
             return;
         }
         comentar(comentario);
+        setComentario('')
     }
+
 
     return (
         <div className="containerFazerComentario">
             <Avatar src={usuarioLogado.avatar} />
             <textarea
-                rows={linhas}
+                rows={rows}
                 onChange={aoDigitarComentario}
-                onKeyDown={aoPresionarQualquerTecla}
-                value={comentario}
-                placeholder="Adicione um comentário...">
-            </textarea>
-            <button
-                type="button"
-                className="btnPublicacao desktop"
-                onClick={fazerComentario}
+                onKeyDown={aoPressionarQualquerTecla}
+                value = {comentario}
+                placeholder="Adicione um comentario..."
+                autoFocus
             >
+            </textarea>
+
+            <button type="button" 
+            className="btnPublicacao desktop" 
+            onClick={fazerComentario}
+            disabled={comentario.trim().length === 0} >
                 Publicar
             </button>
-            <Feed usuarioLogado={usuarioLogado} /> {/* Renderize o componente Feed */}
         </div>
-    );
+    )
 }

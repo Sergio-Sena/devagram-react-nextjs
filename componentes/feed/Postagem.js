@@ -151,7 +151,7 @@ export default function Postagem({
       {deveExibirSecaoComentar && (
         <div>
           <FazerComentario comentar={comentar} usuarioLogado={usuarioLogado} />
-          <Feed usuarioLogado={usuarioLogado} />
+          
         </div>
       )}
     </div>
