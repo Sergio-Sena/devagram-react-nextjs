@@ -14,7 +14,11 @@ const usuarioService = new UsuarioService();
 export default function Header() {
     const [resultadoPesquisa, setResultadoPesquisa] = useState([]);
     const [termoPesquisado, setTermoPesquisado] = useState('');
-    const router =useRouter();
+    const router = useRouter();
+    let cabecalhoclassName = '';
+    if (window && window.location.pathname !== '/') {
+        cabecalhoclassName = 'desktop';
+    }
 
     const aoPesquisar = async (e) => {
         setTermoPesquisado(e.target.value);
@@ -37,11 +41,11 @@ export default function Header() {
         router.push(`/perfil/${id}`);
     };
 
-    const redirecionarParaHome = () =>{
+    const redirecionarParaHome = () => {
         router.push('/');
     }
     return (
-        <header className="cabecalhoHeader">
+        <header className={`cabecalhoHeader${cabecalhoclassName}`}>
             <div className="contudoCabecalhoPrincipal">
                 <div className="logoCabecalhopricipal">
                     <Image
@@ -81,7 +85,7 @@ export default function Header() {
                                 id={r._id}
                                 onClick={aoClicarResultadoPesquisa}
                             />
-                        
+
                         )
 
                         )}

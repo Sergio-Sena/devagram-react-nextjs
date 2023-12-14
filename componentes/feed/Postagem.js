@@ -82,7 +82,7 @@ export default function Postagem({
   };
 
   const usuarioLogadoCurtiuPostagem = () => {
-    return curtidasPostagens.includes(usuarioLogado.id);
+    return curtidasPostagens.includes(usuarioLogado?.id);
   };
 
   const obterImagemCurtida = () => {
