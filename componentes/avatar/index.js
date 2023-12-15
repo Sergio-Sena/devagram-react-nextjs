@@ -1,24 +1,19 @@
-import avatarVazio from '../../public/imagens/avatar.svg';
+import avatarImg from '../../public/imagens/avatar.svg';
 
-export default function avatar({ src }) {
-    const getAvatar = ()=>{
-        if(src && src !=='undefined'){
+export default function Avatar({ src }) {
+    const getAvatar = () => {
+        if (src && src !== 'undefined') {
             return src;
         }
-        return avatarVazio.src;
+
+        return avatarImg.src;
     }
 
     return (
-        <
-            img
+        <img
             src={getAvatar()}
             alt='Avatar'
             className='avatar'
         />
     );
 }
-
-
-
-
-

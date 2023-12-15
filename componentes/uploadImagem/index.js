@@ -1,33 +1,36 @@
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 
-export default function uploadImagem({
+export default function UploadImagem({
     className = '',
     setImagem,
     imagemPreview,
     imagemPreviewClassName = '',
-    aoSertarReferencia
+    aoSetarAReferencia
 }) {
-    const referenciaInput = useRef(null)
+    const referenciaInput = useRef(null);
+
     useEffect(() => {
-        if (!aoSertarReferencia) {
+        if (!aoSetarAReferencia) {
             return;
         }
-        aoSertarReferencia(referenciaInput?.current);
 
+        aoSetarAReferencia(referenciaInput?.current);
     }, [referenciaInput?.current]);
 
-
-    const gestorDeArquivos = () => {
+    const abrirSeletorArquivos = () => {
         referenciaInput?.current?.click();
-        console.log(gestorDeArquivos)
     }
 
-    const aoAlterarImagem = () => {
-
+    const aoAleterarImagem = () => {
         if (!referenciaInput?.current?.files?.length) {
             return;
         }
+
         const arquivo = referenciaInput?.current?.files[0];
+        obterUrlDaImagemEAtualizarEstado(arquivo);
+    }
+
+    const obterUrlDaImagemEAtualizarEstado = (arquivo) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(arquivo);
         fileReader.onloadend = () => {
@@ -36,30 +39,39 @@ export default function uploadImagem({
                 arquivo
             });
         }
-    };
+    }
+
+    const aoSoltarAImagem = (e) => {
+        e.preventDefault();
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            const arquivo = e.dataTransfer.files[0];
+            obterUrlDaImagemEAtualizarEstado(arquivo);
+        }
+    }
 
     return (
-        <div className={`uploadImagemContainer ${className}`} onClick={gestorDeArquivos}>
+        <div className={`uploadImagemContainer ${className}`}
+            onClick={abrirSeletorArquivos}
+            onDragOver={e => e.preventDefault()}
+            onDrop={aoSoltarAImagem}
+        >
             {imagemPreview && (
                 <div className="imagemPreviewContainer">
-                    <img
+                    <img 
                         src={imagemPreview}
-                        alt='imagemPreview'
+                        alt='imagem preview'
                         className={imagemPreviewClassName}
                     />
                 </div>
-
-
-            )
-            }
+            )}
 
             <input
-                type="file"
-                className="oculto "
+                type='file'
+                className='oculto'
                 accept="image/*"
                 ref={referenciaInput}
-                onChange={aoAlterarImagem}
+                onChange={aoAleterarImagem}
             />
-        </div >
+        </div>
     );
 }

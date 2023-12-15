@@ -1,10 +1,8 @@
-import Image from "next/image";
-
-import imgsetaEsquerda from "../../public/imagens/setaEsquerda.svg"
+import Image from 'next/image';
 
 export default function CabecalhoComAcoes({
     className,
-    iconeSetaEsquerda,
+    iconeEquerda,
     textoEsquerda = null,
     aoClicarAcaoEsquerda,
     titulo,
@@ -13,28 +11,28 @@ export default function CabecalhoComAcoes({
 }) {
     return (
         <div className={`cabecalhoComAcoes ${className}`}>
-            {iconeSetaEsquerda ? (
+            {iconeEquerda ? (
                 <Image
-                    src={imgsetaEsquerda}
-                    alt="Icone Voltar"
+                    src={iconeEquerda}
+                    alt='icone esquerda cabeçalho com ações'
                     onClick={aoClicarAcaoEsquerda}
                     width={25}
                     height={25}
                 />
             ) : (
                 textoEsquerda !== null && (
-                    <span className="textoEsquerda" onClick={aoClicarAcaoEsquerda}>
+                    <span className="cabecalhoComAcoesTextoEsquerda" onClick={aoClicarAcaoEsquerda}>
                         {textoEsquerda}
                     </span>
                 )
             )}
-            
+
             <h3>{titulo}</h3>
 
             {elementoDireita && (
                 <button
-                    type="button"
-                    className="btnAcaoDireita"
+                    type='button'
+                    className='btnAcaoDireita'
                     onClick={aoClicarElementoDireita}
                 >
                     {elementoDireita}
