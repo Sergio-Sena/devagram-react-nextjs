@@ -95,18 +95,18 @@ export default function CabecalhoPerfil({
             <CabecalhoComAcoes
                 iconeEquerda={estaNoPerfilPessoal ? null : imgSetaEsquerda}
                 aoClicarAcaoEsquerda={aoClicarSetaEsquerda}
-                titulo={usuario.nome}
+                titulo={usuario ? usuario.nome : "Nome Indefinido"}
                 elementoDireita={obterElementoDireitaCabecalho()}
             />
 
             <hr className='linhaDivisoria' />
 
             <div className='statusPerfil'>
-                <Avatar src={usuario.avatar} />
+                <Avatar src={usuario && usuario.avatar} />
                 <div className='informacoesPerfil'>
                     <div className='statusContainer'>
                         <div className='status'>
-                            <strong>{usuario.publicacoes}</strong>
+                            <strong>{usuario && usuario.publicacoes}</strong>
                             <span>Publicações</span>
                         </div>
 
@@ -116,7 +116,7 @@ export default function CabecalhoPerfil({
                         </div>
 
                         <div className='status'>
-                            <strong>{usuario.seguindo}</strong>
+                            <strong>{usuario && usuario.seguindo}</strong>
                             <span>Seguindo</span>
                         </div>
                     </div>
