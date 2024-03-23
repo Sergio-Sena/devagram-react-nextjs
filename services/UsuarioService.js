@@ -28,6 +28,11 @@ export default class UsuarioService extends httpServices {
     async pesquisar(termoDaPesquisa) {
         return this.get('/pesquisa?filtro=' + termoDaPesquisa);
     }
+
+    async obterperfil(idUsuario){
+        return this.get(`/pesquisa?id=${idUsuario}`);
+    }
+
     obterInformacoesDeUsuarioLogado() {
         return {
             id: localStorage.getItem('id'),

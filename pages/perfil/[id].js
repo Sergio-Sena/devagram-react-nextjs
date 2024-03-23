@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import Feed from '../../componentes/feed';
 import { useRouter } from 'next/router';
 import comAutorizacao from '../../componentes/hoc/comAutorizacao';
 import CabecalhoPerfil from '../../componentes/cabecalhoPerfil';
-import UsuarioService from '@/services/UsuarioService';
+import UsuarioService from '../../services/UsuarioService';
 
 
 
@@ -14,19 +14,28 @@ export function Perfil({ usuarioLogado }) {
   const router = useRouter();
 
 
-  const obterPerfil = async (idUsuario) => {
+  const obterperfil = async (idUsuario) => {
     try {
-      const { data } = await usuarioService.obterPerfil(
+      const { data } = await usuarioService.obterperfil(
         estaNoPerfilPessoal()
           ? usuarioLogado.id
           : idUsuario
       );
       return data;
     } catch (error) {
-      alert(`Erro ao obter perfil do usuario.`);
+      if (error.response) {
+        // A resposta do servidor foi recebida e pode ser tratada aqui
+        console.error('Erro ao obter perfil do usuário:', error.response.status, error.response.data);
+      } else {
+        // Algo aconteceu na configuração da requisição que disparou um erro
+        console.error('Erro ao obter perfil do usuário:', error.message);
+      }
+      alert(`Erro ao obter perfil do usuário: ${error.message}`);
     }
   }
-
+  
+  
+  
   const estaNoPerfilPessoal = () => {
     return router.query.id === 'eu';
   }
@@ -38,7 +47,7 @@ export function Perfil({ usuarioLogado }) {
         return;
       }
 
-      const dadosPerfil = await obterPerfil(router.query.id);
+      const dadosPerfil = await  obterperfil(router.query.id);
       setUsuario(dadosPerfil);
     };
 

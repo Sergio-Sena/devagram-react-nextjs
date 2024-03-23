@@ -14,8 +14,12 @@ body,
 }
 
 .avatar {
-  border-radius: 50%;
+  border-radius: none;
   object-fit: cover;
+  max-width: 350px; 
+  max-height: 350px; 
+  
+
 }
 
 .oculto {

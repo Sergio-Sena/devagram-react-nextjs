@@ -8,9 +8,10 @@
             padding: 16px 16px 24px;
 
             .avatar {
-                height: 85px;
-                width: 85px;
-                margin-right: 24px;
+                background-size: cover;
+                height: auto;
+                width: auto;
+                margin-right: 14px;
 
                 border: solid 3px transparent;
                 background-image: linear-gradient(to bottom, white, white), radial-gradient(circle at top center, $corPrimaria,$corPrimaria3);

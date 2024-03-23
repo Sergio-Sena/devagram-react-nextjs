@@ -52,15 +52,15 @@ export default function Header() {
                         onClick={redirecionarParaHome}
                         src={logoHorizontalImg}
                         alt="Logo devagram"
-                        layout="fill"
+                        
                     />
                 </div>
                 <div className="barraPesquisa">
                     <div className="containerImagemLupa" >
-                        <Image
+                        < Image
                             src={lupa}
                             alt="lupa de pesquisa"
-                            layout="fill"
+                            
                         />
                     </div>
                     <input
