@@ -1,10 +1,10 @@
+
 import React,{ useEffect, useState } from 'react';
 import Feed from '../../componentes/feed';
 import { useRouter } from 'next/router';
 import comAutorizacao from '../../componentes/hoc/comAutorizacao';
-import CabecalhoPerfil from '../../componentes/cabecalhoPerfil';
 import UsuarioService from '../../services/UsuarioService';
-
+import CabecalhoPerfil from '../../componentes/cabecalhoPerfil';
 
 
 const usuarioService = new UsuarioService();
@@ -59,11 +59,11 @@ export function Perfil({ usuarioLogado }) {
 
   return (
     <div className="paginaPerfil">
-      <CabecalhoPerfil
+        <CabecalhoPerfil />
         usuarioLogado={usuarioLogado}
         usuario={usuario}
         estaNoPerfilPessoal={estaNoPerfilPessoal()}
-      />
+      
       
       <Feed
         usuarioLogado={usuarioLogado}
