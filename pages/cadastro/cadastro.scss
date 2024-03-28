@@ -6,8 +6,8 @@
         cursor: pointer;
 
         .avatarPreview {
-            height: 120px;
-            width: 120px;
+            max-height: 80px;
+            max-width: 80px;
         }
 
         &::after {

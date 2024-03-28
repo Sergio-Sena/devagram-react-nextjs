@@ -2,24 +2,24 @@
     border-bottom: 0.5px solid $cinza1;
 
     .contudoCabecalhoPrincipal {
-        display: none;
+        display: flex;
         padding: 8px 16px;
 
         .logoCabecalhopricipal {
             cursor: pointer;
-            position: auto;
-            width: 130px;
+            position: relative;
+            width: 135px;
             height: 30px;
-            fill: none;
 
         }
 
         .barraPesquisa {
-            position: flex;
+            position: relative;
             flex: 1;
             margin-left: 16px;
             display: flex;
             align-items: center;
+
 
             .containerImagemLupa {
                 position: absolute;
@@ -27,7 +27,6 @@
                 height: 20px;
                 left: 8px;
             }
-            
 
             input {
                 background-color: $corPrimaria4;
@@ -84,41 +83,39 @@
     @media screen and (min-width: $desktopBreakpoint) {
         background-color: $branco;
         border: none;
-        .cabecalhoHeader {
-            .contudoCabecalhoPrincipal {
-                display: flex !important;
-                max-width: 60%;
-                margin: auto;
-                align-items: center;
-                justify-content: center;
 
-                .logoCabecalhopricipal {
-                    width: 200px;
-                }
+        .contudoCabecalhoPrincipal {
+            max-width: 60%;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
 
-                .barraPesquisa {
-                    flex: 0.5px 0;
-                    margin: 0px 10px 0px 30px;
-                    width: 100%;
-                }
+            .logoCabecalhopricipal {
+                width: 200px;
+            }
 
-                .barraNavegacao {
-                    ul {
-                        li {
-                            margin: 0px 0px 0px 20px;
-                        }
+            .barraPesquisa {
+                flex: 0.5px 0;
+                margin: 0px 10px 0px 30px;
+                width: 100%;
+            }
+
+            .barraNavegacao {
+                ul {
+                    li {
+                        margin: 0px 0px 0px 20px;
                     }
                 }
+            }
 
-            }
-            .resultadoPesquisaContainer{
-                width: 25%;
-                cursor: pointer;
-                margin: auto;
-                right: 0;
-                left: 8%;
-                box-shadow: 0px 4px 5px $cinza1;
-            }
+        }
+        .resultadoPesquisaContainer{
+            width: 25%;
+            cursor: pointer;
+            margin: auto;
+            right: 0;
+            left: 8%;
+            box-shadow: 0px 4px 5px $cinza1;
         }
     }
 }

@@ -13,13 +13,18 @@ body,
 
 }
 
-.avatar {
-  border-radius: none;
-  object-fit: cover;
-  max-width: 350px; 
-  max-height: 350px; 
-  
+.cabecalhoPerfil{
+  .statusPerfil{
+    .avatar{
+      max-width: 100%; 
+    max-height: auto;
+    }
+  }
+}
 
+.avatar {
+  border-radius: 80%;
+  object-fit: cover;
 }
 
 .oculto {
@@ -114,4 +119,3 @@ body {
 @import '../componentes/layout/rodape.scss';
 @import '../componentes/feed/feed.scss';
 @import '../componentes/cabecalhoComAcoes/cabecalhoComAcoes.scss'; 
-@import '../pages/perfil/perfil.scss'
