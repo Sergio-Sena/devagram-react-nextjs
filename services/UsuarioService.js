@@ -17,6 +17,11 @@ export default class UsuarioService extends httpServices {
             localStorage.setItem("avatar", usuario.data.avatar);
         }
     }
+
+    async logout() {
+        localStorage.clear();
+    }
+
     async cadastro(dados) {
         return this.post('/cadastro', dados);
     }

@@ -75,15 +75,13 @@
                 }
             }
         }
-    }
-
-    ;
+    };
+    
 
 
     @media screen and (min-width: $desktopBreakpoint) {
         background-color: $branco;
-        border: none;
-
+        border: none  ;
         .contudoCabecalhoPrincipal {
             max-width: 60%;
             margin: auto;

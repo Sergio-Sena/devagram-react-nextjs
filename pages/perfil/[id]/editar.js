@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CabecalhoComAcoes from '../../componentes/cabecalhoComAcoes';
-import UploadImagem from '../../componentes/uploadImagem';
-import comAutorizacao from '../../hoc/comAutorizacao';
+import CabecalhoComAcoes from '../../../componentes/cabecalhoComAcoes';
+import UploadImagem from '../../../componentes/uploadImagem';
+import comAutorizacao from '../../../componentes/hoc/comAutorizacao';
 import imgAvatarPadrao from '../../public/imagens/avatar.svg';
 import imgLimpar from '../../public/imagens/limpar.svg';
-import UsuarioService from '../../services/UsuarioService';
-import { validarNome } from '../../utils/validadores';
+import UsuarioService from '../../../services/UsuarioService';
+import { validarNome } from '../../../utils/validadores';
 
 const usuarioService = new UsuarioService();
 
