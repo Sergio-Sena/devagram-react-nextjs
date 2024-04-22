@@ -64,12 +64,11 @@ export default function Header() {
       </div>
       {resultadoPesquisa.length > 0 && (
         <div className="resultadoPesquisaContainer">
-          {/* Aqui você precisa renderizar os resultados da pesquisa */}
           {resultadoPesquisa.map((resultado) => (
             <ResultadoPesquisa
-              key={resultado.id}
-              resultado={resultado}
-              aoClicar={aoClicarResultadoPesquisa} // Passando a função aoClicarResultadoPesquisa para o componente ResultadoPesquisa
+            key={resultado.id}
+            resultado={resultado}
+            aoClicar={() => aoClicarResultadoPesquisa(resultado.id)} 
             />
           ))}
         </div>

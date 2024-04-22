@@ -12,13 +12,15 @@ export default function CabecalhoComAcoes({
     return (
         <div className={`cabecalhoComAcoes ${className}`}>
             {iconeEquerda ? (
-                <Image
+              <span>
+              <Image
                     src={iconeEquerda}
                     alt='icone esquerda cabeçalho com ações'
                     onClick={aoClicarAcaoEsquerda}
                     width={25}
                     height={25}
                 />
+                </span>
             ) : (
                 textoEsquerda !== null && (
                     <span className="cabecalhoComAcoesTextoEsquerda" onClick={aoClicarAcaoEsquerda}>

@@ -89,7 +89,7 @@
             }
         }
 
-        .containerFazerComentario {
+    .containerFazerComentario {
             display: flex;
             align-items: center;
             padding: 0 12px;
@@ -111,30 +111,34 @@
 
             }
         }
+    }
+    @media screen and (min-width:$desktopBreakpoint) {
+        padding-top: 8px;
+        margin-top: 0px;
 
-
-        @media screen and (min-width:$desktopBreakpoint) {
-            padding-top: 8px;
-
-            .postagem {
-                .avatar {
-                    width: 42px;
-                    height: 42px;
-                }
+        .postagem {
+            
+            .cabecalhoPostagem{
+                cursor:pointer;
+            }
+            .avatar {
+                width: 42px;
+                height: 42px;
 
             }
 
-            .containerFazerComentario {
-                margin-top: 10px;
+        }
 
-                .btnPublicacao {
-                    background-color: transparent;
-                    color: $corPrimaria;
-                    outline: none;
-                    border: none;
-                    font-size: 12px;
-                    cursor: pointer
-                }
+        .containerFazerComentario {
+            margin-top: 10px;
+
+            .btnPublicacao {
+                background-color: transparent;
+                color: $corPrimaria;
+                outline: none;
+                border: none;
+                font-size: 12px;
+                cursor: pointer
             }
         }
     }

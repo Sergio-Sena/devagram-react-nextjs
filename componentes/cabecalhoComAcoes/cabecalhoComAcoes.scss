@@ -29,11 +29,12 @@
     }
 
     @media screen and (min-width:$desktopBreakpoint) {
-
+        
         .textoEsquerda,
         .btnAcaoDireita {
             font-size: 14px;
         }
+        
 
     }
 }

@@ -54,9 +54,9 @@
   @media screen and (min-width: $desktopBreakpoint) {
       .cabecalhoPerfil {
         margin-bottom: 20px;
-          .cabecalhoComAcoes {
-              > span {
-                  display: none !important;
+        .cabecalhoComAcoes {
+            > span {
+                display: none;
               }
           }
           
@@ -68,7 +68,7 @@
 
               .informacoesPerfil {
                   .btn {
-                      padding: 8px;
+                      padding: 9px;
                   }
               }
           }

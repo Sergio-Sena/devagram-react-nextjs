@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import Feed from '../../../componentes/feed';
+import Feed from '../../componentes/feed';
 import { useRouter } from 'next/router';
-import comAutorizacao from '../../../componentes/hoc/comAutorizacao';
-import CabecalhoPerfil from '../../../componentes/cabecalhoPerfil';
+import comAutorizacao from '../../componentes/hoc/comAutorizacao';
+import CabecalhoPerfil from '../../componentes/cabecalhoPerfil';
 import UsuarioService from '@/services/UsuarioService';
 
-
 const usuarioService = new UsuarioService();
-
 
 function Perfil({ usuarioLogado }) {
     const [usuario, setUsuario] = useState({});
@@ -15,26 +13,19 @@ function Perfil({ usuarioLogado }) {
 
     const obterPerfil = async (idUsuario) => {
         try {
-            if (!usuarioLogado || !usuarioLogado.id) {
-                throw new Error('Usuário não logado ou sem ID');
-            }
-    
             const { data } = await usuarioService.obterPerfil(
                 estaNoPerfilPessoal()
-                    ? usuarioLogado.id
-                    : idUsuario
+                ? usuarioLogado.id:
+                idUsuario
             );
-            return data;
+            return data; 
         } catch (error) {
-            console.error('Erro ao obter o perfil do usuário:', error);
-            
+            alert(`Erro ao obter perfil de usuário!`);
         }
     };
-    
-    
 
-    const estaNoPerfilPessoal = () => {
-        return router.query.id === 'eu';
+    const estaNoPerfilPessoal = () =>{
+        return router.query.id === 'eu'
     }
 
     useEffect(() => {
@@ -42,30 +33,28 @@ function Perfil({ usuarioLogado }) {
             if (!router.query.id) {
                 return;
             }
-    
+
             try {
                 const dadosPerfil = await obterPerfil(router.query.id);
                 setUsuario(dadosPerfil);
             } catch (error) {
-                <p>Tratar erros aqui, se necessário</p>
+                console.error("Erro ao buscar perfil:", error);
             }
         };
-    
+
         fetchData();
     }, [router.query.id]);
-    
 
     return (
         <div className='paginaPerfil'>
-            <CabecalhoPerfil
+            <CabecalhoPerfil 
                 usuario={usuarioLogado}
-                estaNoPerfilPessoal={estaNoPerfilPessoal()}
+                estaNoPerfilPessoal={estaNoPerfilPessoal()} 
             />
-
-            <Feed
-                usuarioLogado={usuarioLogado}
-                usuarioPerfil={usuario}
-            />
+            <Feed 
+                usuarioLogado={usuarioLogado} 
+                usuarioPerfil={usuario} 
+            /> 
         </div>
     );
 }
