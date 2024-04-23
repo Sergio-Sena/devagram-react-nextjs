@@ -26,17 +26,17 @@
                     margin: 30px auto;
 
                     img {
-                        object-fit: cover;
+                        object-fit: contain;
                     }
 
                     .previewImagemPublicacao {
-                        height: 150px;
-                        width: 150px;
+                        height: 75px;
+                        width: 75px;
                     }
 
                     .previewImagemSelecionada {
-                        height: 250px;
-                        width: 250px;
+                        height: 125px;
+                        width: 125px;
                     }
                 }
             }
@@ -68,6 +68,7 @@
                         height: 100%;
                         width: 100%;
                         object-fit: cover;
+                        object-fit: contain;
                     }
                 }
             }
@@ -110,8 +111,8 @@
             .segundaEtapa {
                 .uploadImagemContainer {
                     .imagemPreviewContainer {
-                        width: 160px;
-                        height: 160px;
+                        width: 60px;
+                        height: 60px;
                     }
                 }
             }

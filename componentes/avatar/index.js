@@ -14,6 +14,7 @@ export default function Avatar({ src }) {
             src={getAvatar()}
             alt='Avatar'
             className='avatar'
+            
         />
     );
 }
